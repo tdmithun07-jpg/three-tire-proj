@@ -1,7 +1,7 @@
 module "my_resource_group" {
     source              = "github.com/tdmithun07-jpg/three-tire-proj//modules/rg"
   }
-  #commit 3
+
 
 # module "my_virtual_network" {
 #     source              = "../../modules/vnet"
