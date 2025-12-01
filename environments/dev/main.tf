@@ -1,5 +1,5 @@
 module "my_resource_group" {
-    source              = "https://github.com/tdmithun07-jpg/three-tire-proj//modules/rg"
+    source              = "github.com/tdmithun07-jpg/three-tire-proj//modules/rg"
   }
 
 # module "my_virtual_network" {
