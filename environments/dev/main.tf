@@ -3,9 +3,9 @@ module "my_resource_group" {
   }
 
 
-# module "my_virtual_network" {
-#     source              = "../../modules/vnet"
-#   }
+module "my_virtual_network" {
+    source              = "github.com/tdmithun07-jpg/three-tire-proj/modules/vnet"
+  }
 
 # module "my_public_subnet" {
 #     source              = "../../modules/subnet/public-subnet"
