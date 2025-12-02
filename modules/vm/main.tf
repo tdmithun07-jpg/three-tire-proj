@@ -2,7 +2,7 @@ resource "azurerm_virtual_machine" "public_vm" {
   name                  =  var.virtual_machine_name
   location              = var.location
   resource_group_name   = var.resource_group_name
-  network_interface_ids = [azurerm_network_interface.main.id]
+  network_interface_ids = [azurerm_network_interface.public_nic.id]
   vm_size               = "Standard_DS1_v2"
 
 storage_image_reference {
