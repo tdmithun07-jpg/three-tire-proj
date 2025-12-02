@@ -7,17 +7,17 @@ module "my_virtual_network" {
     source              = "github.com/tdmithun07-jpg/three-tire-proj/modules/vnet"
   }
 
-# module "my_public_subnet" {
-#     source              = "../../modules/subnet/public-subnet"
-#   }
+module "my_public_subnet" {
+    source              = "github.com/tdmithun07-jpg/three-tire-proj/modules/vnet/public-subnet"
+  }
 
-# module "my_private_subnet" {
-#     source              = "../../modules/subnet/private-subnet"
-#   }
+module "my_private_subnet" {
+    source              = "github.com/tdmithun07-jpg/three-tire-proj/modules/vnet/private-subnet"
+  }
 
-# module "my_db_subnet" {
-#   source = "../../modules/subnet/db-subnet"
-# }
+module "my_db_subnet" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vnet/db-subnet"
+}
 
 # module "nsg" {
 #   source = "../../modules/nsg"
