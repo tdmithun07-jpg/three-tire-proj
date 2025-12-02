@@ -12,7 +12,7 @@ module "my_public_subnet" {
   }
 
 module "my_private_subnet" {
-    source              = "github.com/tdmithun07-jpg/three-tire-proj/subnet/vnet/private-subnet"
+    source              = "github.com/tdmithun07-jpg/three-tire-proj/modules/subnet/private-subnet"
   }
 
 module "my_db_subnet" {
