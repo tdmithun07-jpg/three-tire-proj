@@ -8,15 +8,15 @@ module "my_virtual_network" {
   }
 
 module "my_public_subnet" {
-    source              = "github.com/tdmithun07-jpg/three-tire-proj/modules/vnet/public-subnet"
+    source              = "github.com/tdmithun07-jpg/three-tire-proj/modules/subnet/public-subnet"
   }
 
 module "my_private_subnet" {
-    source              = "github.com/tdmithun07-jpg/three-tire-proj/modules/vnet/private-subnet"
+    source              = "github.com/tdmithun07-jpg/three-tire-proj/subnet/vnet/private-subnet"
   }
 
 module "my_db_subnet" {
-  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vnet/db-subnet"
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/subnet/db-subnet"
 }
 
 # module "nsg" {
