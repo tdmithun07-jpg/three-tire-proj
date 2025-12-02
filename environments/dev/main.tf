@@ -23,4 +23,14 @@ module "nsg" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nsg"
 }
 
+module "nic" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
+  subnet_id = module.my_public_subnet.subnet_id
+}
+
+module "vm" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
+  network_interface_ids = [module.nic.id]
+  subnet_id = module.my_public_subnet.subnet_id
+}
 
