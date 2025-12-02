@@ -1,6 +1,6 @@
-# output "vent_address_space" {
-#   value = module.my_virtual_network.address_space.address_space
-# }
+output "vent_address_space" {
+  value = module.my_virtual_network.address_space.address_space
+}
 
 # #public subnet
 # output "public_subnet_address_prefixes" {
