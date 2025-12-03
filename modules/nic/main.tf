@@ -9,3 +9,5 @@ resource "azurerm_network_interface" "public_nic" {
     private_ip_address_allocation = "Dynamic"
   }
 }
+
+#comment 1

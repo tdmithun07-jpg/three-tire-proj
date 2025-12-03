@@ -25,7 +25,7 @@ module "nsg" {
 
 module "nic" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
-  subnet_id = module.my_public_subnet.subnet_id
+  subnet_id = module.my_public_subnet.subnet_id.id
 }
 
 # resource "azurerm_linux_virtual_machine" "example" {
