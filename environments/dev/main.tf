@@ -4,7 +4,7 @@ module "my_resource_group" {
 
 module "my_virtual_network" {
     source              = "github.com/tdmithun07-jpg/three-tire-proj/modules/vnet"
-    name = module.my_resource_group.name
+    resource_group_name = module.my_resource_group.resource_group_name
     location = module.my_resource_group.location
   }
 
