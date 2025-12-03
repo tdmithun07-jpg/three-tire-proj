@@ -4,21 +4,17 @@ module "my_resource_group" {
 
 module "my_virtual_network" {
     source              = "github.com/tdmithun07-jpg/three-tire-proj/modules/vnet"
-    # resource_group_name = module.my_resource_group.resource_group_name
-    # location = module.my_resource_group.location
+    resource_group_name = module.my_resource_group.resource_group_name
+    location = module.my_resource_group.location
   }
 
-# module "my_public_subnet" {
-#     source              = "github.com/tdmithun07-jpg/three-tire-proj/modules/subnet/public-subnet"
-#   }
+module "my_subnets" {
+    source              = "github.com/tdmithun07-jpg/three-tire-proj/modules/subnet"
+    resource_group_name = module.my_resource_group.resource_group_name
+    location = module.my_resource_group.location
+    vnet_name = module.my_virtual_network.vnet_name
+  }
 
-# module "my_private_subnet" {
-#     source              = "github.com/tdmithun07-jpg/three-tire-proj/modules/subnet/private-subnet"
-#   }
-
-# module "my_db_subnet" {
-#   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/subnet/db-subnet"
-# }
 
 # module "nsg" {
 #   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nsg"
