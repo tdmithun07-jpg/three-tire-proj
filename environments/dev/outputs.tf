@@ -1,14 +1,14 @@
 
 output "vent_address_space" {
-  value = module.my_virtual_network.address_space.address_space
+  value = module.my_virtual_network.address_space
 }
 
 # #public subnet
 output "public_subnet_address_prefixes" {
-  value = module.my_subnets.public_subnet.address_prefixes
+  value = module.my_subnets.public_subnet_prefixes
 }
 output "public_subnet_id" {
-  value = module.my_subnets.public_subnet.subnet_id
+  value = module.my_subnets.public_subnet_id
 }
 
 # #private subnet
