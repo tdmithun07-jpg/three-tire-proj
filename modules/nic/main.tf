@@ -1,11 +1,11 @@
-resource "azurerm_network_interface" "main" {
+resource "azurerm_network_interface" "public_nic" {
   name                = var.network_interface_name
   location            = var.location
   resource_group_name = var.resource_group_name
 
   ip_configuration {
     name                          = "testconfiguration1"
-    subnet_id                     = var.subnet_id
+    subnet_id                     = module.my_public_subnet.subnet_id
     private_ip_address_allocation = "Dynamic"
   }
 }
