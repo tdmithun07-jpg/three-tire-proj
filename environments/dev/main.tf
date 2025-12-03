@@ -23,8 +23,16 @@ module "nsg" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nsg"
 }
 
-module "nic" {
-  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
+resource "azurerm_network_interface" "public_nic" {
+  name                = "public_nic"
+  location            = module.my_resource_group.location
+  resource_group_name =  module.my_resource_group.resource_group_name
+
+  ip_configuration {
+    name                          = "testconfiguration1"
+    subnet_id                     = module.my_public_subnet.subnet_id
+    private_ip_address_allocation = "Dynamic"
+  }
 }
 
 # module "public_vm" {
