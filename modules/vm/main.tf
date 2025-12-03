@@ -1,11 +1,11 @@
-resource "azurerm_linux_virtual_machine" "example" {
+resource "azurerm_linux_virtual_machine" "public_vm" {
   name                = "public_vm"
   resource_group_name =   var.resource_group_name
   location            =   var.location
   size                = "Standard_F2"
   admin_username      = "adminuser"
   network_interface_ids = [
-    azurerm_network_interface.public_nic.id,
+    var.network_interface_name
   ]
 
   admin_ssh_key {
