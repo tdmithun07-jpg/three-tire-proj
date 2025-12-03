@@ -25,3 +25,7 @@ output "db_subnet_address_prefixes" {
 output "db_subnet_id" {
   value = module.my_db_subnet.subnet_id
 }
+
+output "public_nic_id" {
+  value = module.nic.network_interface_ids
+}
