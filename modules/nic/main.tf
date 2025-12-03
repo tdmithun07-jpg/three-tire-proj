@@ -5,7 +5,7 @@ resource "azurerm_network_interface" "public_nic" {
 
   ip_configuration {
     name                          = "testconfiguration1"
-    subnet_id                     = module.my_public_subnet.id
+    subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
   }
 }
