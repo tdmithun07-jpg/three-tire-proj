@@ -17,6 +17,18 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+# Step 1: Checkout your code
+      - uses: actions/checkout@v4
+
+      # Step 2: Load the private key for SSH connections
+      - name: Setup SSH private key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.ID_RSA_AZURE_VM_PUB}}
+          
+      # Step 3: Connect and run commands on the VM
+      - name: Deploy via SSH
+        run: |
 
       - name: Terraform Init
         id: init

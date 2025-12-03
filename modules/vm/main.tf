@@ -10,7 +10,7 @@ resource "azurerm_linux_virtual_machine" "public_vm" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = ("secrets.id_rsa_azure_vm_pub")
+    public_key = file("~/.ssh/id_rsa.pub")
   }
 
   os_disk {
