@@ -27,9 +27,9 @@ module "nic" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
 }
 
-module "public_vm" {
-  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
-  network_interface_ids = [module.nic.id]
-  subnet_id = module.my_public_subnet.subnet_id
-}
+# module "public_vm" {
+#   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
+#   network_interface_ids = [module.nic.id]
+#   subnet_id = module.my_public_subnet.subnet_id
+# }
 
