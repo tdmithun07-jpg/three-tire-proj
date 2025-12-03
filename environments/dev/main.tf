@@ -30,5 +30,5 @@ module "nic" {
 
 module "vm" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
-  subnet_id = module.my_public_subnet.subnet_id
+  network_interface_name = module.nic.public_nic.network_interface_ids
 }
