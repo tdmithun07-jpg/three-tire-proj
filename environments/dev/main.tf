@@ -28,7 +28,7 @@ module "public_nic" {
   #name = "public_nic"
   location = module.my_resource_group.location
   resource_group_name =  module.my_resource_group.resource_group_name
-  subnet_id = module.my_subnets.public_subnet.subnet_id
+  subnet_id = module.my_subnets.public_subnet_id
 }
 
 # module "private_nic" {
