@@ -11,10 +11,9 @@ output "public_subnet_id" {
   value = module.my_subnets.public_subnet_id
 }
 
-# output "public_nic_id" {
-#   value = module.nic.public_network_interface_ids
-  
-# }
+output "public_nic_id" {
+  value = module.nic.public_nic_id
+}
 
 # #private subnet
 # output "private_subnet_address_prefixes" {
