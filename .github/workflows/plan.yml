@@ -32,3 +32,9 @@ jobs:
         id: plan
         run: terraform plan
         working-directory: ./environments/dev
+
+      - name: terraform apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        id: apply
+        run: terraform apply -auto-approve
+        working-directory: ./environments/dev
