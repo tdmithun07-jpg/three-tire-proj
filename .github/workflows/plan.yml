@@ -38,3 +38,9 @@ jobs:
         id: apply
         run: terraform apply -auto-approve
         working-directory: ./environments/dev
+
+      - name : terraform destroy
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        id: destroy
+        run: terraform destroy -auto-approve
+        working-directory: ./environments/dev
