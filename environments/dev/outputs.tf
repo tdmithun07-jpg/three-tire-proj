@@ -5,7 +5,7 @@ output "vent_address_space" {
 
 # #public subnet
 output "public_subnet_address_prefixes" {
-  value = module.my_subnets
+  value = module.my_subnets.public_subnet_prefix
 }
 output "public_subnet_id" {
   value = module.my_subnets.public_subnet_id
