@@ -12,7 +12,7 @@ output "public_subnet_id" {
 }
 
 output "public_nic_id" {
-  value = module.nic.public_nic_id
+  value = module.public_nic.id
 }
 
 # #private subnet

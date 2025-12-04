@@ -1,5 +1,5 @@
 output "network_interface_ids" {
-  value = azurerm_network_interface.public_nic.id
+  value = azurerm_network_interface.nic.id
 }
 
 # output "private_network_interface_ids" {
