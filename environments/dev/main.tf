@@ -31,21 +31,21 @@ module "public_nic" {
   subnet_id = module.my_subnets.public_subnet_id
 }
 
-# module "private_nic" {
-#   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
-#   #name = "private_nic"
-#   location = module.my_resource_group.location  
-#   resource_group_name =  module.my_resource_group.resource_group_name
-#   subnet_id = module.nsg.my_private_subnet.subnet_id
-# }
+module "private_nic" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
+  #name = "private_nic"
+  location = module.my_resource_group.location  
+  resource_group_name =  module.my_resource_group.resource_group_name
+  subnet_id = module.my_subnets.private_subnet_id
+}
 
-# module "db_nic" {
-#   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
-#   #name = "db_nic"
-#   location = module.my_resource_group.location
-#   resource_group_name =  module.my_resource_group.resource_group_name
-#   subnet_id = module.nsg.my_db_subnet.subnet_id
-# }
+module "db_nic" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
+  #name = "db_nic"
+  location = module.my_resource_group.location
+  resource_group_name =  module.my_resource_group.resource_group_name
+  subnet_id = module.my_subnets.db_subnet_id
+}
 
 # module "public_vm" {
 #   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
