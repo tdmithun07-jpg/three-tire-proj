@@ -25,7 +25,7 @@ module "nsg" {
 
 module "public_nic" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
-  #name = "public_nic"
+  name = "public_nic"
   location = module.my_resource_group.location
   resource_group_name =  module.my_resource_group.resource_group_name
   subnet_id = module.my_subnets.public_subnet_id
@@ -33,7 +33,7 @@ module "public_nic" {
 
 module "private_nic" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
-  #name = "private_nic"
+  name = "private_nic"
   location = module.my_resource_group.location  
   resource_group_name =  module.my_resource_group.resource_group_name
   subnet_id = module.my_subnets.private_subnet_id
@@ -41,7 +41,7 @@ module "private_nic" {
 
 module "db_nic" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
-  #name = "db_nic"
+  name = "db_nic"
   location = module.my_resource_group.location
   resource_group_name =  module.my_resource_group.resource_group_name
   subnet_id = module.my_subnets.db_subnet_id
