@@ -47,10 +47,12 @@ module "db_nic" {
   subnet_id = module.my_db_subnet.subnet_id
 }
 
-module "vm" {
+module "public_vm" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
   network_interface_name = module.nic.network_interface_ids
   subnet_id = module.my_public_subnet.subnet_id
+  location = module.my_resource_group.location
+  resource_group_name = module.my_resource_group.resource_group_name
 }
 resource "azurerm_network_interface_security_group_association" "nic_group_public" {
   network_interface_id = module.public_nic.network_interface_ids
