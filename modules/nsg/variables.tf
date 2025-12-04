@@ -4,7 +4,6 @@ variable "public_nsg_name" {
   default = "public-nsg"
 }
 
-
 variable "private_nsg_name" {
   description = "name of the network security group"
   type        = string

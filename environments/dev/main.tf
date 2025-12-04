@@ -16,17 +16,43 @@ module "my_subnets" {
   }
 
 
-# module "nsg" {
-#   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nsg"
-# }
+module "nsg" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nsg"
+  resource_group_name = module.my_resource_group.resource_group_name
+  location = module.my_resource_group.location
 
-# module "nic" {
-#   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
-#   # subnet_id = module.my_public_subnet.subnet_id
-# }
+}
 
-# # module "vm" {
-# #   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
-# #   network_interface_name = module.nic.network_interface_ids
-# #   subnet_id = module.my_public_subnet.subnet_id
-# # }
+module "public_nic" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
+  network_interface_name = "public_nic"
+  location = module.my_resource_group.location
+  resource_group_name =  module.my_resource_group.resource_group_name
+  subnet_id = module.my_public_subnet.subnet_id
+}
+
+module "private_nic" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
+  network_interface_name = "private_nic"
+  location = module.my_resource_group.location  
+  resource_group_name =  module.my_resource_group.resource_group_name
+  subnet_id = module.my_private_subnet.subnet_id
+}
+
+module "db_nic" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
+  network_interface_name = "db_nic"
+  location = module.my_resource_group.location
+  resource_group_name =  module.my_resource_group.resource_group_name
+  subnet_id = module.my_db_subnet.subnet_id
+}
+
+module "vm" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
+  network_interface_name = module.nic.network_interface_ids
+  subnet_id = module.my_public_subnet.subnet_id
+}
+resource "azurerm_network_interface_security_group_association" "nic_group_public" {
+  network_interface_id = module.public_nic.network_interface_ids
+  network_security_group_id = module.nsg.public_nsg.public_nsg_id
+}
