@@ -24,7 +24,7 @@ module "nsg" {
 
 module "public_nic" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
-  public_network_interface_name = "public_nic"
+  network_interface_name = "public_nic"
   location = module.my_resource_group.location
   resource_group_name =  module.my_resource_group.resource_group_name
   subnet_id = module.my_subnets.public_subnet_id
