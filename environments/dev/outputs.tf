@@ -15,6 +15,10 @@ output "public_nic_id" {
   value = module.public_nic.network_interface_ids
 }
 
+output "public_nic_name" {
+  value = module.public_nic.network_interface_name
+}
+
 # #private subnet
 # output "private_subnet_address_prefixes" {
 #   value = module.my_private_subnet.subnet_address_prefixes.address_prefixes
