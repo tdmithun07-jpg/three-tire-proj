@@ -16,7 +16,7 @@ output "public_nic_id" {
 }
 
 output "public_nic_name" {
-  value = module.public_nic.network_interface_name
+  value = module.public_nic
 }
 
 # #private subnet
