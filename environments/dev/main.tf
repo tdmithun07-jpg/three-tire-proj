@@ -20,40 +20,42 @@ module "nsg" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nsg"
   resource_group_name = module.my_resource_group.resource_group_name
   location = module.my_resource_group.location
-
 }
 
 module "public_nic" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
-  network_interface_name = "public_nic"
+  #public_network_interface_name = "public_nic"
   location = module.my_resource_group.location
   resource_group_name =  module.my_resource_group.resource_group_name
   subnet_id = module.my_subnets.public_subnet_id
 }
 
-module "private_nic" {
-  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
-  network_interface_name = "private_nic"
-  location = module.my_resource_group.location  
-  resource_group_name =  module.my_resource_group.resource_group_name
-  subnet_id = module.my_subnets.private_subnet_id
-}
+# module "private_nic" {
+#   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
+#   private_network_interface_name = "private_nic"
+#   location = module.my_resource_group.location  
+#   resource_group_name =  module.my_resource_group.resource_group_name
+#   subnet_id = module.my_subnets.private_subnet_id
+# }
 
-module "db_nic" {
-  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
-  network_interface_name = "db_nic"
-  location = module.my_resource_group.location
-  resource_group_name =  module.my_resource_group.resource_group_name
-  subnet_id = module.my_subnets.db_subnet_id
-}
+# module "db_nic" {
+#   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
+#   db_network_interface_name = "db_nic"
+#   location = module.my_resource_group.location
+#   resource_group_name =  module.my_resource_group.resource_group_name
+#   subnet_id = module.my_subnets.db_subnet_id
+# }
 
 # module "public_vm" {
 #   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
-#   network_interface_name = module.nic.network_interface_ids
-#   subnet_id = module.my_public_subnet.subnet_id
+#   network_interface_name = module.public_nic.name
+#   network_interface_id = [module.public_nic.id]
+#   subnet_id = module.my_subnets.public_subnet_id
 #   location = module.my_resource_group.location
 #   resource_group_name = module.my_resource_group.resource_group_name
+#   virtual_machine_name = "public_vm"
 # }
+
 # resource "azurerm_network_interface_security_group_association" "nic_group_public" {
 #   network_interface_id = module.public_nic.network_interface_ids
 #   network_security_group_id = module.nsg.public_nsg.public_nsg_id

@@ -1,8 +1,8 @@
-output "public_subnet_prefix" {
+output "subnet_prefix" {
   value = azurerm_subnet.public_subnet.address_prefixes
 }
 
-output "public_subnet_id" {
+output "subnet_id" {
   value = azurerm_subnet.public_subnet.id
 }
 
