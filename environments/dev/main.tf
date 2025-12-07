@@ -46,15 +46,15 @@ module "public_nic" {
 #   subnet_id = module.my_subnets.db_subnet_id
 # }
 
-# module "public_vm" {
-#   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
-#   network_interface_name = module.public_nic.name
-#   network_interface_id = [module.public_nic.id]
-#   subnet_id = module.my_subnets.public_subnet_id
-#   location = module.my_resource_group.location
-#   resource_group_name = module.my_resource_group.resource_group_name
-#   virtual_machine_name = "public_vm"
-# }
+module "public_vm" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
+  network_interface_name = module.public_nic.name
+  network_interface_id = [module.public_nic.network_interface_id]
+  subnet_id = module.my_subnets.public_subnet_id
+  location = module.my_resource_group.location
+  resource_group_name = module.my_resource_group.resource_group_name
+  virtual_machine_name = "public_vm"
+}
 
 # resource "azurerm_network_interface_security_group_association" "nic_group_public" {
 #   network_interface_id = module.public_nic.network_interface_ids
