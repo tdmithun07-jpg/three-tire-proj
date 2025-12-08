@@ -75,6 +75,6 @@ module "app_vm" {
 }
 
 resource "azurerm_network_interface_security_group_association" "nic_group_app" {
-  network_interface_id = module.private_nic.private_network_interface_ids
+  network_interface_id = module.private_nic.network_interface_ids
   network_security_group_id = module.nsg.private_nsg_id
 }
