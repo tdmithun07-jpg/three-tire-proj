@@ -58,7 +58,7 @@ module "web_vm" {
   admin_password = "password@1234"
 }
 
-resource "azurerm_network_interface_security_group_association" "nic_group_public" {
+resource "azurerm_network_interface_security_group_association" "nic_group_web" {
   network_interface_id = module.public_nic.network_interface_ids
   network_security_group_id = module.nsg.public_nsg_id
 }
@@ -72,4 +72,9 @@ module "app_vm" {
   virtual_machine_name = "app_vm"
   admin_username = "appadmin"
   admin_password = "password@1234"
+}
+
+resource "azurerm_network_interface_security_group_association" "nic_group_app" {
+  network_interface_id = module.private_nic.db_network_interface_ids
+  network_security_group_id = module.nsg.private_nsg_id
 }
