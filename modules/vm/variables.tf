@@ -25,4 +25,14 @@ variable "subnet_id" {
   type = string
 }
 
+variable "admin_username" {
+  description = "username of admin"
+  type = string
+}
+
+variable "admin_password" {
+  description = "password of the the vm"
+  type = string
+}
+
 
