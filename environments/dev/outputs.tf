@@ -23,7 +23,7 @@ output "private_nic_id" {
 # }
 # output "web_vm_pass" {
 #   value = module.web_vm.admin_password
+# # }
+# output "web_vm_id" {
+#   value = module.web_vm.id
 # }
-output "web_vm_id" {
-  value = module.web_vm.id
-}
