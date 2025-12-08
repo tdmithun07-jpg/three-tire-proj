@@ -56,7 +56,7 @@ module "public_vm" {
   virtual_machine_name = "public_vm"
 }
 
-# resource "azurerm_network_interface_security_group_association" "nic_group_public" {
-#   network_interface_id = module.public_nic.network_interface_ids
-#   network_security_group_id = module.nsg.public_nsg.public_nsg_id
-# }
+resource "azurerm_network_interface_security_group_association" "nic_group_public" {
+  network_interface_id = module.public_nic.network_interface_ids
+  network_security_group_id = module.nsg.public_nsg_name
+}
