@@ -60,3 +60,12 @@ resource "azurerm_network_interface_security_group_association" "nic_group_publi
   network_interface_id = module.public_nic.network_interface_ids
   network_security_group_id = module.nsg.public_nsg_id
 }
+
+module "app_vm" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
+  network_interface_name = module.private_nic.network_interface_name
+  subnet_id = module.my_db_subnet.private_subnet_id
+  location = module.my_resource_group.location
+  resource_group_name = module.my_resource_group.resource_group_name
+  virtual_machine_name = "app_vm"
+}
