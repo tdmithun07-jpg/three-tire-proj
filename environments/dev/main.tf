@@ -55,6 +55,7 @@ module "web_vm" {
   resource_group_name = module.my_resource_group.resource_group_name
   virtual_machine_name = "public_vm"
   admin_username = "webadmin"
+  admin_password = "password@1234"
 }
 
 resource "azurerm_network_interface_security_group_association" "nic_group_public" {
@@ -70,4 +71,5 @@ module "app_vm" {
   resource_group_name = module.my_resource_group.resource_group_name
   virtual_machine_name = "app_vm"
   admin_username = "appadmin"
+  admin_password = "password@1234"
 }
