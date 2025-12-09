@@ -13,9 +13,9 @@ output "public_subnet_id" {
 output "public_nic_name" {
   value = module.public_nic
 }
-# output "private_nic_ids" {
-#   value =  module.private_nic.network_interface_ids
-# }
+output "private_nic_ids" {
+  value =  module.private_nic.network_interface_ids
+}
 
 
 # output "web_vm_username" {
