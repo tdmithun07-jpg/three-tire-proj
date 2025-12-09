@@ -5,7 +5,11 @@ variable "virtual_machine_name" {
 variable "network_interface_name" {
   description = "name of nic"
   type = string
-#
+}
+
+variable "network_interface_ids" {
+  description = "value"
+  type = string
 }
 
 variable "location" {
@@ -34,5 +38,7 @@ variable "admin_password" {
   description = "password of the the vm"
   type = string
 }
+
+
 
 
