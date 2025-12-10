@@ -17,10 +17,10 @@ output "private_nic_ids" {
   value =  module.private_nic.network_interface_ids
 }
 output "web_ip_id" {
-  value = module.web_ip
+  value = module.web_ip.ip_address
 }
 output "app_ip_id" {
-  value = module.app_ip
+  value = module.app_ip.ip_address
 }
 
 # output "web_vm_username" {
