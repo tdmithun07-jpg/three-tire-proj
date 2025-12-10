@@ -33,5 +33,10 @@ variable "resource_group_name" {
 #   default = "dev-rg"
 }
 
+variable "public_ip_address_id" {
+  description = "public ip address"
+  type = string
+}
+
 
 
