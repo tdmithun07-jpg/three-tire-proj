@@ -1,11 +1,13 @@
 variable "web_ip_name" {
   description = "name of the public ip"
   type = string
+  default = "web_ip"
 }
 
 variable "app_ip_name" {
   description = "name of the public ip"
   type = string
+  default = "app_ip"
 }
 
 variable "resource_group_name" {
