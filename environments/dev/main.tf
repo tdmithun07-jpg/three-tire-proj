@@ -58,10 +58,10 @@ module "web_vm" {
   admin_password = "Password@12345"
 }
 
-# resource "azurerm_network_interface_security_group_association" "nic_group_web" {
-#   network_interface_id = module.public_nic.network_interface_ids
-#   network_security_group_id = module.nsg.public_nsg_id
-# }
+resource "azurerm_network_interface_security_group_association" "nic_group_web" {
+  network_interface_id = module.public_nic.network_interface_ids
+  network_security_group_id = module.nsg.public_nsg_id
+}
 
 # module "app_vm" {
 #   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
