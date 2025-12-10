@@ -22,11 +22,10 @@ module "nsg" {
   location = module.my_resource_group.location
 }
 
-resource "azurerm_public_ip" "web-ip" {
-    name                = "web_ip"
-  location            = module.my_resource_group.location
+module "web_public_ip" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/public-ip"
   resource_group_name = module.my_resource_group.resource_group_name
-  allocation_method   = "Dynamic"
+  location = module.my_resource_group.location
 }
 
 module "public_nic" {
@@ -35,7 +34,7 @@ module "public_nic" {
   location = module.my_resource_group.location
   resource_group_name =  module.my_resource_group.resource_group_name
   subnet_id = module.my_subnets.public_subnet_id
-  #public_ip_address_id          = 
+  public_ip_address_id          = module.web_public_ip.ID
 }
 
 module "private_nic" {
