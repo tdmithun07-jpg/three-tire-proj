@@ -43,7 +43,7 @@ module "public_nic" {
   location = module.my_resource_group.location
   resource_group_name =  module.my_resource_group.resource_group_name
   subnet_id = module.my_subnets.public_subnet_id
-  public_ip_address_id          = module.web_ip.id
+  public_ip_address_id          = module.web_ip.web_ip_id
 }
 
 module "private_nic" {
@@ -52,7 +52,7 @@ module "private_nic" {
   location = module.my_resource_group.location  
   resource_group_name =  module.my_resource_group.resource_group_name
   subnet_id = module.my_subnets.private_subnet_id
-  public_ip_address_id = module.app_ip.id
+  public_ip_address_id = module.app_ip.app_ip_id
 }
 
 # module "db_nic" {
