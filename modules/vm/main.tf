@@ -3,7 +3,7 @@ resource "azurerm_virtual_machine" "vm" {
   location              = var.location
   resource_group_name   = var.resource_group_name
   network_interface_ids = [var.network_interface_ids]
-  vm_size               = "Standard_B2ats_v2"
+  vm_size               = "Standard D2s v3"
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
   delete_os_disk_on_termination = true
@@ -13,7 +13,7 @@ resource "azurerm_virtual_machine" "vm" {
 
   storage_image_reference {
     publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-jammy"
+    offer     = "ubuntu-24_04-lts"
     sku       = "22_04-lts-gen2"
     version   = "latest"
   }
@@ -25,8 +25,8 @@ resource "azurerm_virtual_machine" "vm" {
   }
   os_profile {
     computer_name  = "hostname"
-    admin_username = "testadmin"
-    admin_password = "Password@1234"
+    admin_username = var.admin_username
+    admin_password = var.admin_password
   }
   os_profile_linux_config {
     disable_password_authentication = false
