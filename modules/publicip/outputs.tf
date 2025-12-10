@@ -1,3 +1,7 @@
-output "public_ip_address_id" {
-  value = azurerm_public_ip.public-ip.id
+output "web_ip_address_id" {
+  value = azurerm_public_ip.web-ip.id
+}
+
+output "app_ip_address_id" {
+  value = azurerm_public_ip.app-ip
 }

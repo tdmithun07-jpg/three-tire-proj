@@ -1,4 +1,9 @@
-variable "public_ip_name" {
+variable "web_ip_name" {
+  description = "name of the public ip"
+  type = string
+}
+
+variable "app_ip_name" {
   description = "name of the public ip"
   type = string
 }

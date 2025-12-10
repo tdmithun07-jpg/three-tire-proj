@@ -22,20 +22,11 @@ module "nsg" {
   location = module.my_resource_group.location
 }
 
-module "web_ip" {
+module "public_ip" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/publicip"
   resource_group_name = module.my_resource_group.resource_group_name
   location = module.my_resource_group.location
-  public_ip_name = "web_ip"
 }
-
-module "app_ip" {
-  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/publicip"
-  resource_group_name = module.my_resource_group.resource_group_name
-  location = module.my_resource_group.location
-  public_ip_name = "app_ip"
-}
-
 
 module "public_nic" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
@@ -43,7 +34,7 @@ module "public_nic" {
   location = module.my_resource_group.location
   resource_group_name =  module.my_resource_group.resource_group_name
   subnet_id = module.my_subnets.public_subnet_id
-  public_ip_address_id          = module.web_ip.web_ip_id
+  public_ip_address_id          = module.public_ip.web_ip_address_id
 }
 
 module "private_nic" {
@@ -52,7 +43,7 @@ module "private_nic" {
   location = module.my_resource_group.location  
   resource_group_name =  module.my_resource_group.resource_group_name
   subnet_id = module.my_subnets.private_subnet_id
-  public_ip_address_id = module.app_ip.app_ip_id
+  public_ip_address_id = module.private_nic.app_ip_address_id
 }
 
 # module "db_nic" {
