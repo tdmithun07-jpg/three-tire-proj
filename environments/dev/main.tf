@@ -26,12 +26,14 @@ module "web_ip" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/publicip"
   resource_group_name = module.my_resource_group.resource_group_name
   location = module.my_resource_group.location
+  public_ip_name = "web_ip"
 }
 
 module "app_ip" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/publicip"
   resource_group_name = module.my_resource_group.resource_group_name
   location = module.my_resource_group.location
+  public_ip_name = "app_ip"
 }
 
 
