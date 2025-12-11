@@ -3,6 +3,7 @@ resource "azurerm_public_ip" "web-ip" {
   location            = var.location
   resource_group_name = var.resource_group_name
   allocation_method   = "Dynamic"
+  sku = "Basic"
 }
 
 # resource "azurerm_public_ip" "app-ip" {
