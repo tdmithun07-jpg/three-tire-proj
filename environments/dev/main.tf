@@ -70,6 +70,7 @@ module "web_vm" {
   virtual_machine_name = "web_vm"
   username = "web_admin"
   public_key = module.sshkey.public_key_openssh
+  disable_password_authentication = true
   #admin_username = "Web-admin"
   #admin_password = "Password@12345"
 }
