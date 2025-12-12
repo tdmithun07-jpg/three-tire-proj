@@ -1,6 +1,15 @@
-resource "azurerm_ssh_public_key" "example" {
-  name                = "example"
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  public_key          = var.ssh_key_path
+resource "tls_private_key" "vm1" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "local_file" "private_key" {
+  content         = tls_private_key.vm1.private_key_pem
+  filename        = pathexpand("~/.ssh/vm1") # Save private key as ~/.ssh/vm1
+  file_permission = "0600"
+}
+
+resource "local_file" "public_key" {
+  content  = tls_private_key.vm1.public_key_openssh
+  filename = pathexpand("~/.ssh/vm1.pub") # Save public key as ~/.ssh/vm1.pub
 }

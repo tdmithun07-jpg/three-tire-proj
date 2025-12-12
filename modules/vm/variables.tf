@@ -39,6 +39,11 @@ variable "admin_password" {
   type = string
 }
 
+variable "public_key_path" {
+  description = "public key location"
+  type = string
+}
+
 
 
 

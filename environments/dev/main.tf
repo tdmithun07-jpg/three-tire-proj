@@ -54,6 +54,10 @@ module "public_nic" {
 #   subnet_id = module.my_subnets.db_subnet_id
 # }
 
+module "sshkey" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/sshkey"
+}
+
 module "web_vm" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
   network_interface_name = module.public_nic.network_interface_name
@@ -61,9 +65,11 @@ module "web_vm" {
   subnet_id = module.my_subnets.public_subnet_id
   location = module.my_resource_group.location
   resource_group_name = module.my_resource_group.resource_group_name
-  virtual_machine_name = "public_vm"
-  admin_username = "Web-admin"
-  admin_password = "Password@12345"
+  virtual_machine_name = "web_vm"
+  username = "web_admin"
+  public_key = module.sshkey.public_key_openssh
+  #admin_username = "Web-admin"
+  #admin_password = "Password@12345"
 }
 
 resource "azurerm_network_interface_security_group_association" "nic_group_web" {
