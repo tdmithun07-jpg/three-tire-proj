@@ -8,6 +8,8 @@ resource "azurerm_linux_virtual_machine" "vm1" {
     var.network_interface_ids
   ]
 
+  disable_password_authentication = true
+
   admin_ssh_key {
     username   = "adminuser"
     public_key = var.public_key_path
