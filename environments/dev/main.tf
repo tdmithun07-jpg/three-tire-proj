@@ -68,7 +68,7 @@ module "web_vm" {
   location = module.my_resource_group.location
   resource_group_name = module.my_resource_group.resource_group_name
   virtual_machine_name = "web_vm"
-  username = "web_admin"
+  #username = "web_admin"
   #public_key = module.sshkey.public_key_openssh
   #disable_password_authentication = true
   #admin_username = "Web-admin"
