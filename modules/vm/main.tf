@@ -8,11 +8,11 @@ resource "azurerm_linux_virtual_machine" "vm1" {
     var.network_interface_ids
   ]
 
-  disable_password_authentication = true
+  #disable_password_authentication = true
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = var.public_key_path
+    public_key = file("github.com/tdmithun07-jpg/three-tire-proj/environments/dev/.ssh/keys/id_rsa_azure_vm.pub")
   }
 
   os_disk {
