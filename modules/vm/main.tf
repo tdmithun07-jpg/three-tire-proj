@@ -4,7 +4,6 @@ resource "azurerm_linux_virtual_machine" "vm1" {
   location            = var.location
   size                = "Standard_D2_v2_Promo"
   admin_username      = "adminuser"
-  disable_password_authentication = true
   network_interface_ids = [
     var.network_interface_ids
   ]
@@ -14,6 +13,8 @@ resource "azurerm_linux_virtual_machine" "vm1" {
     public_key = file("github.com/tdmithun07-jpg/three-tire-proj/environments/dev/.ssh/keys/id_rsa_azure_vm.pub")
   }
 
+  disable_password_authentication = true
+  
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
