@@ -4,11 +4,10 @@ resource "azurerm_linux_virtual_machine" "vm1" {
   location            = var.location
   size                = "Standard_D2_v2_Promo"
   admin_username      = "adminuser"
+  disable_password_authentication = true
   network_interface_ids = [
     var.network_interface_ids
   ]
-
-  #disable_password_authentication = true
 
   admin_ssh_key {
     username   = "adminuser"
