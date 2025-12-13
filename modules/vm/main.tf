@@ -10,11 +10,11 @@ resource "azurerm_linux_virtual_machine" "vm1" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("github.com/tdmithun07-jpg/three-tire-proj/environments/dev/.ssh/keys/id_rsa_azure_vm.pub")
+    public_key = file("github.com/tdmithun07-jpg/three-tire-proj/environments/dev/keys/id_rsa_azure_vm.pub")
   }
 
   disable_password_authentication = true
-  
+
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
