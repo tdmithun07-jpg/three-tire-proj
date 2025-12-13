@@ -30,6 +30,7 @@ variable "subnet_id" {
 }
 
 
+
 # variable "admin_username" {
 #   description = "username of admin"
 #   type = string
