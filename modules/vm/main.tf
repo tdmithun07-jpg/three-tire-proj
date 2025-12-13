@@ -10,7 +10,7 @@ resource "azurerm_linux_virtual_machine" "vm1" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("github.com/tdmithun07-jpg/three-tire-proj//environments/dev/keys/*")
+    public_key = var.public_key_path
   }
 
   disable_password_authentication = true
