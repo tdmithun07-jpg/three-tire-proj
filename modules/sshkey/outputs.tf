@@ -6,10 +6,10 @@
 #   value = tls_private_key.vm1.public_key_openssh
 # }
 
-# output "public_key_path" {
-#   value = azurerm_ssh_public_key.pub_key.public_key
-# }
-
 output "public_key_path" {
-  value = data.local_file.ssh_key.filename
+  value = azurerm_ssh_public_key.pub_key.public_key
 }
+
+# output "public_key_path" {
+#   value = data.local_file.ssh_key.filename
+# }
