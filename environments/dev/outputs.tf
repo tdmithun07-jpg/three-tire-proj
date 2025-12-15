@@ -7,6 +7,10 @@ output "vent_address_space" {
 output "public_subnet_id" {
   value = module.my_subnets.public_subnet_id
 }
+
+output "pub_key" {
+  value = module.sshkey.public_key_openssh
+}
 # output "public_nic_ids" {
 #   value = module.public_nic.network_interface_ids
 # }
