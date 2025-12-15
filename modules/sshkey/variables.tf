@@ -9,3 +9,7 @@ variable "resource_group_name" {
   type = string
  # default = "dev-rg"
 }
+
+variable "public_key_path" {
+  default = "github.com/tdmithun07-jpg/three-tire-proj/environments/dev/keys/id_rsa_azure_vm.pub"
+}

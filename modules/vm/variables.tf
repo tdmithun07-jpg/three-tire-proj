@@ -44,6 +44,7 @@ variable "subnet_id" {
 variable "public_key_path" {
   description = "public key location"
   type = string
+  
 }
 
 
