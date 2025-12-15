@@ -49,7 +49,7 @@ variable "subnet_id" {
 variable "ssh_public_key" {
   description = "public key for vm"
   type = string
-  default = "github.com/tdmithun07-jpg/three-tire-proj/environments/dev/keys/id_rsa_azure_vm.pub"
+  default = "github.com/tdmithun07-jpg/three-tire-proj/environments/dev/keys/keypair1512.pub"
 }
 
 
