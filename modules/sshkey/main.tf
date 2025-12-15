@@ -14,12 +14,12 @@
 #   filename = pathexpand("github.com/tdmithun07-jpg/three-tire-proj/environments/dev/keys/vm1.pub") # Save public key as ~/.ssh/vm1.pub
 # }
 
-resource "azurerm_ssh_public_key" "pub_key" {
-  name                = "pub_key"
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  public_key          = file(pathexpand(var.public_key_path))
-}
+# resource "azurerm_ssh_public_key" "pub_key" {
+#   name                = "pub_key"
+#   resource_group_name = var.resource_group_name
+#   location            = var.location
+#   public_key          = file(pathexpand(var.public_key_path))
+# }
 
 # data "local_file" "ssh_key" { 
 #     filename = "github.com/tdmithun07-jpg/three-tire-proj/environments/dev/keys/testkey.txt"

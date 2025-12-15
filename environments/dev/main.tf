@@ -54,11 +54,11 @@ module "public_nic" {
 #   subnet_id = module.my_subnets.db_subnet_id
 # }
 
-module "sshkey" {
-  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/sshkey"
-  location = module.my_resource_group.location
-  resource_group_name = module.my_resource_group.resource_group_name
-}
+# module "sshkey" {
+#   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/sshkey"
+#   location = module.my_resource_group.location
+#   resource_group_name = module.my_resource_group.resource_group_name
+# }
 
 module "web-vm" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
@@ -69,7 +69,7 @@ module "web-vm" {
   resource_group_name = module.my_resource_group.resource_group_name
   virtual_machine_name = "web-vm"
   #username = "web_admin"
-  public_key_path = module.sshkey.public_key_path
+  #public_key_path = module.sshkey.public_key_path
   #disable_password_authentication = true
   #admin_username = "Web-admin"
   #admin_password = "Password@12345"
