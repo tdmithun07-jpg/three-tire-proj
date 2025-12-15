@@ -11,6 +11,10 @@ output "public_subnet_id" {
 output "pub_key" {
   value = module.sshkey.public_key_openssh
 }
+
+output "priv_key" {
+  value = module.sshkey.private_key_pem
+}
 # output "public_nic_ids" {
 #   value = module.public_nic.network_interface_ids
 # }
