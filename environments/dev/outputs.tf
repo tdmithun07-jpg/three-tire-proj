@@ -14,6 +14,7 @@ output "pub_key" {
 
 output "priv_key" {
   value = module.sshkey.private_key_pem
+  sensitive = true
 }
 # output "public_nic_ids" {
 #   value = module.public_nic.network_interface_ids
