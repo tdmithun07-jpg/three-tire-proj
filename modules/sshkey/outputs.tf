@@ -7,5 +7,9 @@
 # }
 
 output "public_key_path" {
-  value = data.local_file.ssh_key
+  value = azurerm_ssh_public_key.pub_key.public_key
 }
+
+# output "public_key_path" {
+#   value = data.local_file.ssh_key.filename
+# }
