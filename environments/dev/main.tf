@@ -69,7 +69,7 @@ module "web-vm" {
   resource_group_name = module.my_resource_group.resource_group_name
   virtual_machine_name = "web-vm"
   #username = "web_admin"
-  public_key = module.sshkey.public_key_openssh
+  public_key = module.sshkey.public_key_path
   #disable_password_authentication = true
   #admin_username = "Web-admin"
   #admin_password = "Password@12345"
