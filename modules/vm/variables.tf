@@ -41,15 +41,15 @@ variable "subnet_id" {
 #   type = string
 # }
 
-# variable "public_key_path" {
-#   description = "public key location"
-#   type = string 
-# }
-
-variable "ssh_public_key" {
-  description = "public key for vm"
-  type = string
-  default = "github.com/tdmithun07-jpg/three-tire-proj/environments/dev/keys/keypair1512.pub"
+variable "public_key_path" {
+  description = "public key location"
+  type = string 
 }
+
+# variable "ssh_public_key" {
+#   description = "public key for vm"
+#   type = string
+#   default = "github.com/tdmithun07-jpg/three-tire-proj/environments/dev/keys/keypair1512.pub"
+# }
 
 

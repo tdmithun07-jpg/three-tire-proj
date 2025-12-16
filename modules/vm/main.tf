@@ -1,6 +1,6 @@
-data "local_file" "ssh_key" { 
-    filename = "github.com/tdmithun07-jpg/three-tire-proj/environments/dev/keys/keypair1512"
- }
+# data "local_file" "ssh_key" { 
+#     filename = "github.com/tdmithun07-jpg/three-tire-proj/environments/dev/keys/id_rsa.pem.pub"
+#  }
 
 resource "azurerm_linux_virtual_machine" "vm" {
   name                = var.virtual_machine_name
@@ -14,7 +14,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = data.local_file.ssh_key.content
+    public_key = var.public_key_path
   }
 
   disable_password_authentication = true
