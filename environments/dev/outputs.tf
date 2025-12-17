@@ -10,12 +10,12 @@ output "public_subnet_id" {
 
 output "public_key" {
   value = module.sshkey.public_key_path
-  sensitive = true
+  sensitive = false
 }
 
 output "private_key" {
   value = module.sshkey.private_key_path
-  sensitive = true
+  sensitive = false
 }
 
 # output "pub_key" {
