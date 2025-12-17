@@ -10,6 +10,13 @@
 #   value = azurerm_ssh_public_key.pub_key.public_key
 # }
 
+# output "public_key_path" {
+#   value = data.local_file.ssh_key.content
+# }
+
 output "public_key_path" {
-  value = data.local_file.ssh_key.content
+  value = azurerm_key_vault_secret.vm1_ssh_public_key.value
+}
+output "private_key_path" {
+  value = azurerm_key_vault_secret.vm1_ssh_private_key.value
 }
