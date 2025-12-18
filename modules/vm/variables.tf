@@ -41,10 +41,10 @@ variable "subnet_id" {
 #   type = string
 # }
 
-variable "public_key" {
-  description = "public key location"
-  type = string 
-}
+# variable "public_key" {
+#   description = "public key location"
+#   type = string 
+# }
 
 # variable "ssh_public_key" {
 #   description = "public key for vm"
