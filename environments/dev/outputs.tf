@@ -8,15 +8,15 @@ output "public_subnet_id" {
   value = module.my_subnets.public_subnet_id
 }
 
-output "public_key" {
-  value = module.sshkey.public_key_path
-  sensitive = true
-}
+# output "public_key" {
+#   value = module.sshkey.public_key_path
+#   sensitive = true
+# }
 
-output "private_key" {
-  value = module.sshkey.private_key_path
-  sensitive = true
-}
+# output "private_key" {
+#   value = module.sshkey.private_key_path
+#   sensitive = true
+# }
 
 # output "pub_key" {
 #   value = module.sshkey.public_key_openssh
