@@ -60,25 +60,25 @@ module "sshkey" {
   # resource_group_name = module.my_resource_group.resource_group_name
 }
 
-# module "web-vm" {
-#   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
-#   network_interface_name = module.public_nic.network_interface_name
-#   network_interface_ids = module.public_nic.network_interface_ids
-#   subnet_id = module.my_subnets.public_subnet_id
-#   location = module.my_resource_group.location
-#   resource_group_name = module.my_resource_group.resource_group_name
-#   virtual_machine_name = "web-vm"
-#   #username = "web_admin"
-#   public_key = module.sshkey.public_key_path
-#   #disable_password_authentication = true
-#   #admin_username = "Web-admin"
-#   #admin_password = "Password@12345"
-# }
+module "web-vm" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
+  network_interface_name = module.public_nic.network_interface_name
+  network_interface_ids = module.public_nic.network_interface_ids
+  subnet_id = module.my_subnets.public_subnet_id
+  location = module.my_resource_group.location
+  resource_group_name = module.my_resource_group.resource_group_name
+  virtual_machine_name = "web-vm"
+  #username = "web_admin"
+  #public_key = module.sshkey.public_key_path
+  #disable_password_authentication = true
+  #admin_username = "Web-admin"
+  #admin_password = "Password@12345"
+}
 
-# resource "azurerm_network_interface_security_group_association" "nic_group_web" {
-#   network_interface_id = module.public_nic.network_interface_ids
-#   network_security_group_id = module.nsg.public_nsg_id
-# }
+resource "azurerm_network_interface_security_group_association" "nic_group_web" {
+  network_interface_id = module.public_nic.network_interface_ids
+  network_security_group_id = module.nsg.public_nsg_id
+}
 
 # module "app_vm" {
 #   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"

@@ -14,9 +14,9 @@
 #   value = data.local_file.ssh_key.content
 # }
 
-output "public_key_path" {
-  value = azurerm_key_vault_secret.vm1_ssh_public_key.value
-}
-output "private_key_path" {
-  value = azurerm_key_vault_secret.vm1_ssh_private_key.value
-}
+# output "public_key_path" {
+#   value = azurerm_key_vault_secret.vm1_ssh_public_key.value
+# }
+# output "private_key_path" {
+#   value = azurerm_key_vault_secret.vm1_ssh_private_key.value
+# }
