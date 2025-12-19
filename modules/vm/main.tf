@@ -8,12 +8,10 @@ data "azurerm_key_vault_secret" "ssh_public_key" {
   key_vault_id = data.azurerm_key_vault.kv.id
 }
 
-# (Optional) Fetch the Private Key if you need it for provisioners
 data "azurerm_key_vault_secret" "ssh_private_key" {
   name         = "vm1-ssh-private"
   key_vault_id = data.azurerm_key_vault.kv.id
 }
-
 
 resource "azurerm_linux_virtual_machine" "vm" {
   name                = var.virtual_machine_name
@@ -25,12 +23,12 @@ resource "azurerm_linux_virtual_machine" "vm" {
     var.network_interface_ids
   ]
 
-  admin_ssh_key {
-    username   = "adminuser"
-    public_key = data.azurerm_key_vault_secret.ssh_public_key.value
-  }
-
-  disable_password_authentication = true
+  # admin_ssh_key {
+  #   username   = "adminuser"
+  #   public_key = data.azurerm_key_vault_secret.ssh_public_key.value
+  # }
+  admin_password = "Password@12345"
+  disable_password_authentication = false
 
   os_disk {
     caching              = "ReadWrite"
