@@ -4,7 +4,7 @@ data "azurerm_key_vault" "kv" {
 }
 
 data "azurerm_key_vault_secret" "ssh_public_key" {
-  name         = "id-rsa-1912-pub"
+  name         = "testkey1912-pub"
   key_vault_id = data.azurerm_key_vault.kv.id
 }
 
