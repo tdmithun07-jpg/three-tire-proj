@@ -4,14 +4,14 @@ data "azurerm_key_vault" "kv" {
 }
 
 data "azurerm_key_vault_secret" "ssh_public_key" {
-  name         = "vm1-ssh-public"
+  name         = "id-rsa-1912-pub"
   key_vault_id = data.azurerm_key_vault.kv.id
 }
 
-data "azurerm_key_vault_secret" "ssh_private_key" {
-  name         = "vm1-ssh-private"
-  key_vault_id = data.azurerm_key_vault.kv.id
-}
+# data "azurerm_key_vault_secret" "ssh_private_key" {
+#   name         = "vm1-ssh-private"
+#   key_vault_id = data.azurerm_key_vault.kv.id
+# }
 
 resource "azurerm_linux_virtual_machine" "vm" {
   name                = var.virtual_machine_name
@@ -23,12 +23,12 @@ resource "azurerm_linux_virtual_machine" "vm" {
     var.network_interface_ids
   ]
 
-  # admin_ssh_key {
-  #   username   = "adminuser"
-  #   public_key = data.azurerm_key_vault_secret.ssh_public_key.value
-  # }
-  admin_password = "Password@12345"
-  disable_password_authentication = false
+  admin_ssh_key {
+    username   = "adminuser"
+    public_key = data.azurerm_key_vault_secret.ssh_public_key.value
+  }
+  #admin_password = "Password@12345"
+  disable_password_authentication = true
 
   os_disk {
     caching              = "ReadWrite"
