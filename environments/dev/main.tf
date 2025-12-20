@@ -87,12 +87,12 @@ module "app-vm" {
   subnet_id = module.my_subnets.private_subnet_id
   location = module.my_resource_group.location
   resource_group_name = module.my_resource_group.resource_group_name
-  virtual_machine_name = "app_vm"
+  virtual_machine_name = "app-vm"
 #   admin_username = "appadmin"
 #   admin_password = "password@1234"
 }
 
-# resource "azurerm_network_interface_security_group_association" "nic_group_app" {
-#   network_interface_id = module.private_nic.network_interface_ids
-#   network_security_group_id = module.nsg.private_nsg_id
-# }
+resource "azurerm_network_interface_security_group_association" "nic_group_app" {
+  network_interface_id = module.private_nic.network_interface_ids
+  network_security_group_id = module.nsg.private_nsg_id
+}
