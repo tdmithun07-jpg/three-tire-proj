@@ -80,7 +80,7 @@ resource "azurerm_network_interface_security_group_association" "nic_group_web" 
   network_security_group_id = module.nsg.public_nsg_id
 }
 
-module "app_vm" {
+module "app-vm" {
   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
   network_interface_name = module.private_nic.network_interface_name
   network_interface_ids = module.private_nic.network_interface_ids
