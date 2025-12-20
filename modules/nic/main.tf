@@ -12,7 +12,7 @@ resource "azurerm_network_interface" "nic" {
 }
 
 # resource "azurerm_network_interface" "private_nic" {
-#   name = var.private_network_interface_name
+#     name = var.network_interface_name
 #     location            = var.location
 #     resource_group_name = var.resource_group_name
 #     ip_configuration {
