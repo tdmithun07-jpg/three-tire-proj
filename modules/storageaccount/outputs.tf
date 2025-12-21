@@ -1,5 +1,5 @@
 output "storage_account_id" {
-  value = azurerm_storage_account.statefile.id
+  value = azurerm_storage_account.statefile-storage.id
 }
 
 output "storage_container_id" {
