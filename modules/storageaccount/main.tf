@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "statefile-storage" {
-  name                     = "state file storage"
+  name                     = "statefilestorage2212"
   resource_group_name      = var.resource_group_name
   location                 = var.location
   account_tier             = "Standard"
