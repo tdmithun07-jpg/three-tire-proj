@@ -52,13 +52,13 @@ module "private_nic" {
   public_ip_address_id          = null
 }
 
-# module "db_nic" {
-#   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
-#   network_interface_name = "db_nic"
-#   location = module.my_resource_group.location
-#   resource_group_name =  module.my_resource_group.resource_group_name
-#   subnet_id = module.my_subnets.db_subnet_id
-# }
+module "db_nic" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nic"
+  network_interface_name = "db_nic"
+  location = module.my_resource_group.location
+  resource_group_name =  module.my_resource_group.resource_group_name
+  subnet_id = module.my_subnets.db_subnet_id
+}
 
 # module "sshkey" {
 #   source = "github.com/tdmithun07-jpg/three-tire-proj/modules/sshkey"
@@ -102,3 +102,19 @@ resource "azurerm_network_interface_security_group_association" "nic_group_app" 
   network_interface_id = module.private_nic.network_interface_ids
   network_security_group_id = module.nsg.private_nsg_id
 }
+
+module "db-vm" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/vm"
+  network_interface_name = module.db_nic.network_interface_name
+  network_interface_ids = module.db_nic.network_interface_ids
+  subnet_id = module.my_subnets.db_subnet_id
+  location = module.my_resource_group.location
+  resource_group_name = module.my_resource_group.resource_group_name
+  virtual_machine_name = "db-vm"
+}
+
+ module "nsg" {
+  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nsg"
+  resource_group_name = module.my_resource_group.resource_group_name
+  location = module.my_resource_group.location 
+ }

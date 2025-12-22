@@ -18,5 +18,5 @@ resource "azurerm_subnet" "db_subnet" {
     resource_group_name  = var.resource_group_name
     virtual_network_name = var.vnet_name
     address_prefixes     = var.db_subnet_address_prefixes
-  
+
 }
