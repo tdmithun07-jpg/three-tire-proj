@@ -6,14 +6,23 @@ terraform {
       version = "4.55.0"
     }
   }
-  cloud {
-    organization = "three-tire-proj"
-    workspaces {
-      name = "three-tire-project"
-    }
+
+  # cloud {
+  #   organization = "three-tire-proj"
+  #   workspaces {
+  #     name = "three-tire-project"
+  #   }
+  #  }
+  # }
+
+backend "azurerm" {
+    resource_group_name  = "dev-rg"
+    storage_account_name = "statefilestorage2212"
+    container_name       = "statefilecontainer"
+    key                  = "terraform.tfstate"
   }
 }
 
 provider "azurerm" {
   features {}
-}
+ }
