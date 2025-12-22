@@ -22,7 +22,7 @@ backend "azurerm" {
     key                  = "terraform.tfstate"
   }
 }
-
+#testcomment
 provider "azurerm" {
   features {}
  }
