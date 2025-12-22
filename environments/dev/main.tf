@@ -58,6 +58,7 @@ module "db_nic" {
   location = module.my_resource_group.location
   resource_group_name =  module.my_resource_group.resource_group_name
   subnet_id = module.my_subnets.db_subnet_id
+  public_ip_address_id          = null
 }
 
 # module "sshkey" {
