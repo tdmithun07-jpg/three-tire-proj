@@ -112,9 +112,7 @@ module "db-vm" {
   resource_group_name = module.my_resource_group.resource_group_name
   virtual_machine_name = "db-vm"
 }
-
- module "nsg" {
-  source = "github.com/tdmithun07-jpg/three-tire-proj/modules/nsg"
-  resource_group_name = module.my_resource_group.resource_group_name
-  location = module.my_resource_group.location 
- }
+resource "azurerm_network_interface_security_group_association" "nic_group_db" {
+  network_interface_id = module.db_nic.network_interface_ids
+  network_security_group_id = module.nsg.db_nsg_id
+}
